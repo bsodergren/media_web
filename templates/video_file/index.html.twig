@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VideoFileController!
+{% endblock %}
+
+{% block body %}
+
+	{% for video in video_file %}
+
+		<a class="rounded-[60px] py-2 px-5 bg-white/10 hover:bg-white/20" href="{{ video.url }}">
+			{% if video.metadata is defined %}
+				{% if video.metadata.title is defined %}
+					{{ video.metadata.title }}
+				{%  else %}
+					{{ video.name }}
+
+				{% endif %}
+			{% else %}
+
+				{{ video.name }}
+			{% endif %}
+
+
+		</a><br>
+	{% endfor %}
+
+{% endblock %}
